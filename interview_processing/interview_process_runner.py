@@ -102,7 +102,14 @@ def speech_to_text(audio_file, audio_language):
 
 def speech_to_text_generator(inputlanguage):
     audio_text = ''
+    fileList = []
+
     for filename in os.listdir(audiopath):
+        fileList.append(filename)
+
+    fileList.sort()
+    
+    for filename in fileList:
         audio_text += speech_to_text(audiopath + "/" + filename, inputlanguage)
     return audio_text
 
@@ -142,7 +149,6 @@ def process_video(user_id, company_id):
     confidence_score = video_analyser()
     audio_extracter()
     audio_text = speech_to_text_generator(language)
-    print(audio_text)
     db.child("Jobs").child(company_id).child("Juser").child("0").child("audio_text").set(audio_text)
     db.child("Jobs").child(company_id).child("Juser").child("0").child("confidence_score").set(str(confidence_score))
     db.child("Jobs").child(company_id).child("Juser").child("0").child("status").set("Interview Processed")
