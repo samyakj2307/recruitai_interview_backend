@@ -142,6 +142,7 @@ def process_video(user_id, company_id):
     confidence_score = video_analyser()
     audio_extracter()
     audio_text = speech_to_text_generator(language)
+    print(audio_text)
     db.child("Jobs").child(company_id).child("Juser").child("0").child("audio_text").set(audio_text)
     db.child("Jobs").child(company_id).child("Juser").child("0").child("confidence_score").set(str(confidence_score))
     db.child("Jobs").child(company_id).child("Juser").child("0").child("status").set("Interview Processed")

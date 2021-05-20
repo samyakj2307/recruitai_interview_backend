@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&h%+5$%=2ejbp_*)thi4!d336%tqy4zv$+hzwu)dt63%e9*(lc'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['165.22.217.172','127.0.0.1']
 
@@ -129,5 +129,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CELERY_BROKER_URL = 'amqps://beaxclzc:m0OM-8a2Y7O2QLp4pTB5PVDEL8k9wkO9@baboon.rmq.cloudamqp.com/beaxclzc'
+# CELERY_BROKER_URL = 'amqps://beaxclzc:m0OM-8a2Y7O2QLp4pTB5PVDEL8k9wkO9@baboon.rmq.cloudamqp.com/beaxclzc'
 
