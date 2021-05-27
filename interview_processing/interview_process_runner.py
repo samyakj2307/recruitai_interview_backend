@@ -231,7 +231,7 @@ def process_video(user_id, company_id):
     confidence_score = video_analyser()
     db.child("Jobs").child(company_id).child("Juser").child(user_id).child("confidence_score").set(str(confidence_score))
 
-    language = db.child("Jobs").child(company_id).child("IQ").child("language").get().val()
+    language = db.child("Jobs").child(company_id).child("language").get().val()
 
     audio_extracter()
     audio_text = speech_to_text_generator(language)
