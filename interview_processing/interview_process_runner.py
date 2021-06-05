@@ -32,22 +32,24 @@ def fullAudioExtracter():
 
 def audio_extracter():
     os.mkdir(audiopath)
+
     clip = mp.VideoFileClip(videopath)
-    duration = math.floor(clip.duration)
+    # duration = math.floor(clip.duration)
     clipname = "subclip1"
-    subclip = clip.subclip(0, min(60, duration))
-    subclip.audio.write_audiofile(audiopath + "/" + clipname + ".wav")
-    duration -= subclip.duration
-    duration_start = 1
-    i = 2
-    while duration > 1:
-        duration_start += 60
-        clipname = "subclip" + str(i)
-        duration_end = min(duration_start + 60, duration_start + duration - 1)
-        subclip = clip.subclip(duration_start, duration_end)
-        subclip.audio.write_audiofile(audiopath + "/" + clipname + ".wav")
-        duration -= subclip.duration
-        i += 1
+    clip.audio.write_audiofile(audiopath + "/" + clipname + ".wav")
+    # subclip = clip.subclip(0, min(60, duration))
+    # subclip.audio.write_audiofile(audiopath + "/" + clipname + ".wav")
+    # duration -= subclip.duration
+    # duration_start = 1
+    # i = 2
+    # while duration > 1:
+    #     duration_start += 60
+    #     clipname = "subclip" + str(i)
+    #     duration_end = min(duration_start + 60, duration_start + duration - 1)
+    #     subclip = clip.subclip(duration_start, duration_end)
+    #     subclip.audio.write_audiofile(audiopath + "/" + clipname + ".wav")
+    #     duration -= subclip.duration
+    #     i += 1
     clip.close()
 
 
